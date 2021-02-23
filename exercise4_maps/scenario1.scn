@@ -1,0 +1,25 @@
+threshold 10
+growth 0.1
+spread 0.1
+start High-Plains 
+hawkweed Selwyn 10
+conn Selwyn Khancoban
+conn Selwyn Thredbo-Perisher
+conn Thredbo-Perisher Lower-Snowy-River 
+conn Lower-Snowy-River Nimmo
+conn Lower-Snowy-River High-Plains 
+conn High-Plains Yaouk
+conn Yaouk Paupong
+conn Paupong Nimmo
+conn Nimmo Ngadang
+conn Ngadang Paupong
+conn Ngadang Khancoban
+location Khancoban
+location Selwyn
+location Thredbo-Perisher
+location Lower-Snowy-River 
+location High-Plains 
+location Yaouk
+location Paupong
+location Nimmo
+location Ngadang

@@ -1,0 +1,8 @@
+initial state0
+accepting state4
+transition state0 state1 a
+transition state1 state2 b
+transition state2 state1 c
+transition state1 state3 d
+transition state3 state1 e
+transition state1 state4 f

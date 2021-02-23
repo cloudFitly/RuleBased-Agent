@@ -1,0 +1,12 @@
+initial one0
+transition one0 zero1 0
+transition zero1 one1 1
+transition one1 zero2 0
+transition zero2 one2 1
+transition one2 zero3 0
+transition zero3 one3 1
+transition one3 zero4 0
+transition zero4 one4 1
+transition one4 zero5 0
+transition zero5 one5 1
+accepting zero1 one1 zero2 one2 zero3 one3 zero4 one4 zero5 one5
