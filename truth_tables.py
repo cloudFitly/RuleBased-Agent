@@ -11,21 +11,21 @@
 
                  See the assignment notes for a description of its contents.
 """
-
-
+import pandas as pd
+from itertools import product
 def boolean_fn1(a, b, c):
     """ Return the truth value of (a ∨ b) → (-a ∧ -b) """
-    # YOUR CODE HERE
+    return  not(a or b) or ((not a) and (not b))
 
 
 def boolean_fn2(a, b, c):
     """ Return the truth value of (a ∧ b) ∨ (-a ∧ -b) """
-    # YOUR CODE HERE
+    return (a and b) or ((not a) and (not b))
 
 
 def boolean_fn3(a, b, c):
     """ Return the truth value of ((c → a) ∧ (a ∧ -b)) ∨ (-a ∧ b) """
-    # YOUR CODE HERE
+    return ((not c or a) and (a and not b)) or (not a and b)
 
 
 def draw_truth_table(boolean_fn):
@@ -50,4 +50,6 @@ def draw_truth_table(boolean_fn):
         True  True  False False
         True  True  True  False
     """
-    # YOUR CODE HERE
+    f = boolean_fn
+    values = [list(x) + [f(*x)] for x in product([False,True], repeat=f.__code__.co_argcount)]
+    return pd.DataFrame(values,columns=(list(f.__code__.co_varnames) + [f.__name__]))
