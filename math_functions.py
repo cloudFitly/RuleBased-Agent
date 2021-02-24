@@ -7,19 +7,39 @@
 
                  See the assignment notes for a description of its contents.
 """
+import math
 
-ln_e =  # YOUR CODE HERE
+ln_e = math.log(math.e , math.e)
 
-twenty_radians =  # YOUR CODE HERE
+twenty_radians =  math.radians(20)
 
 
 def quotient_ceil(numerator, denominator):
-    """ YOUR CODE HERE """
+    """ Returns floating_point_division numerator / denominator ...
+        ... rounded up to next largest integer.
+        
+        (number, number) -> Integer
+        
+    """
+    return math.ceil(numerator/denominator)
+    
 
 
 def quotient_floor(numerator, denominator):
-    """ YOUR CODE HERE """
+    """ Returns floating_point_division numerator / denominator ...
+        ... rounded down to greatest integer less then or equal to itself.
+        
+        (number, number) -> Integer
+    """
+    return math.floor(numerator/denominator)
+    
 
 
 def manhattan(x1, y1, x2, y2):
-    """ YOUR CODE HERE """
+    """ Returns Manhattan dist. between two points (x1,y1) and (x2,y2)
+        Distance Formula : |x1-x2| + |y1-y2|
+        
+        (number,number
+    
+    """
+    return abs(x2-x1) + abs(y2-y1)
