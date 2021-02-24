@@ -39,7 +39,7 @@ def manhattan(x1, y1, x2, y2):
     """ Returns Manhattan dist. between two points (x1,y1) and (x2,y2)
         Distance Formula : |x1-x2| + |y1-y2|
         
-        (number,number
+        (number,number, number, number) -> number
     
     """
     return abs(x2-x1) + abs(y2-y1)
