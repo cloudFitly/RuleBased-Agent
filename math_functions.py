@@ -29,7 +29,7 @@ def quotient_floor(numerator, denominator):
     """ Returns floating_point_division numerator / denominator ...
         ... rounded down to greatest integer less then or equal to itself.
         
-        (number, number) -> Integer
+        (number, number, number, number) -> Integer
     """
     return math.floor(numerator/denominator)
     
