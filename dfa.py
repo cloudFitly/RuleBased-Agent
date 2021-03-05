@@ -1,6 +1,6 @@
 """ File name:   dfa.py
-    Author:      <your name goes here>
-    Date:        <the date goes here>
+    Author:      <tanmay negi>
+    Date:        <30/07/1998>
     Description: This file defines a function which reads in
                  a DFA described in a file and builds an appropriate datastructure.
 
@@ -12,9 +12,15 @@
                  See the assignment notes for a description of its contents.
 """
 
-
-def load_dfa(path_to_dfa_file):
-    """ This function reads the DFA in the specified file and returns a
+class dfa():
+    def __init__(self):
+        self.initial = None
+        self.accepting = []
+        self.contents = None
+        self.table = {}
+    
+    def load_dfa(self,path):
+        """ This function reads the DFA in the specified file and returns a
         data structure representing it. It is up to you to choose an appropriate
         data structure. The returned DFA will be used by your accepts_word
         function. Consider using a tuple to hold the parts of your DFA, one of which
@@ -25,17 +31,35 @@ def load_dfa(path_to_dfa_file):
         the DFA.
 
         (str) -> Object
-    """
-
-    # YOUR CODE HERE
-
-
-def accepts_word(dfa, word):
-    """ This function takes in a DFA (that is produced by your load_dfa function)
+        """
+        self.contents = open(path,"r").read().splitlines()
+        for line in self.contents:
+            if not self.initial and ("initial" in line):
+                self.initial = line.split(" ")[1]
+            if not self.accepting and ("accepting" in line):
+                self.accepting = line.split(" ")[1:]
+            if "transition" in line:
+                temp = line.split(" ")
+                if temp[1] not in self.table.keys():
+                    self.table[temp[1]] = {}
+                    self.table[temp[1]][temp[3]] = temp[2]
+                else:
+                    self.table[temp[1]][temp[3]] = temp[2]
+        return (self.initial,self.accepting,self.table)
+    
+    def accepts_word(self,word):
+        """ This function takes in a DFA (that is produced by your load_dfa function)
         and then returns True if the DFA accepts the given word, and False
         otherwise.
 
         (Object, str) -> bool
-    """
-
-    # YOUR CODE HERE
+        """
+        if not self.initial or not self.accepting or not self.table:
+            print("dfa not loaded")
+            return False
+        current_state = self.initial
+        for ch in word:
+            if ch not in self.table[current_state].keys():
+                return False
+            current_state = self.table[current_state][ch]
+        return True if current_state in self.accepting else False
