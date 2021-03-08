@@ -1,6 +1,6 @@
 """ File name:   hawkweed_eradication_agents.py
-    Author:      <your name goes here>
-    Date:        <the date goes here>
+    Author:      <tanmay negi>
+    Date:        <09/03/2021>
     Description: This file contains agents which manage and eradicate hawkweed. 
                  It is used in Exercise 4 of Assignment 0.
 """
@@ -52,6 +52,13 @@ class HawkweedEradicationAgent:
 class SmartHawkweedEradicationAgent(HawkweedEradicationAgent):
     def __init__(self, locations, conn):
         """ YOUR CODE HERE. """
+        super().__init__(locations, conn)
+
+
 
     def choose_move(self, location, valid_moves, hawkweed, threshold, growth, spread):
-        """ YOUR CODE HERE. """
+        """ Chooses next move
+            Next move: hawkweed.key.value = max(hawkweed[(valid_moves)]) """
+
+        temp = max(map(hawkweed.get,valid_moves))
+        return list(hawkweed.keys())[list(hawkweed.values()).index(temp)]
