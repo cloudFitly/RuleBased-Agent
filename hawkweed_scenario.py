@@ -76,7 +76,7 @@ class HawkweedScenario():
             if loc not in self.hawkweed.keys():
                 self.hawkweed[loc] = 0.0
         
-        # updating _conn to reflect bi=directional paths
+        # updating _conn to reflect bi-directional paths
         temp = dict(self.conn)
         for loc in self.conn.keys():
             for node in self.conn[loc]:
