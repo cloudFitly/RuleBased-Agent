@@ -1,6 +1,6 @@
 """ File name:   dfa.py
     Author:      <tanmay negi>
-    Date:        <30/07/1998>
+    Date:        <12/03/2021>
     Description: This file defines a function which reads in
                  a DFA described in a file and builds an appropriate datastructure.
 
@@ -18,6 +18,7 @@ class dfa():
         self.accepting = []
         self.contents = None
         self.table = {}
+        self.__path = None
     
     def load_dfa(self,path):
         """ This function reads the DFA in the specified file and returns a
@@ -32,6 +33,7 @@ class dfa():
 
         (str) -> Object
         """
+        self.__path = path
         self.contents = open(path,"r").read().splitlines()
         for line in self.contents:
             if not self.initial and ("initial" in line):
@@ -57,6 +59,7 @@ class dfa():
         if not self.initial or not self.accepting or not self.table:
             print("dfa not loaded")
             return False
+        print("parsed by",self.__path)
         current_state = self.initial
         for ch in word:
             if ch not in self.table[current_state].keys():
