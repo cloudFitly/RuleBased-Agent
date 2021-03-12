@@ -52,4 +52,4 @@ def draw_truth_table(boolean_fn):
     """
     f = boolean_fn
     values = [list(x) + [f(*x)] for x in product([False,True], repeat=f.__code__.co_argcount)]
-    return pd.DataFrame(values,columns=(list(f.__code__.co_varnames) + [f.__name__]))
+    print(pd.DataFrame(values,columns=(list(f.__code__.co_varnames) + [f.__name__])))
