@@ -13,12 +13,12 @@
 """
 import pandas as pd
 from itertools import product
-def boolean_fn1(a, b, c):
+def boolean_fn1(a, b):
     """ Return the truth value of (a ∨ b) → (-a ∧ -b) """
     return  not(a or b) or ((not a) and (not b))
 
 
-def boolean_fn2(a, b, c):
+def boolean_fn2(a, b):
     """ Return the truth value of (a ∧ b) ∨ (-a ∧ -b) """
     return (a and b) or ((not a) and (not b))
 
