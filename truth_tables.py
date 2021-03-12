@@ -1,6 +1,6 @@
 """ File name:   truth_tables.py
-    Author:      <your name goes here>
-    Date:        <the date goes here>
+    Author:      tanmay negi
+    Date:        12/03/2021
     Description: This file defines a number of functions which implement Boolean
                  expressions.
 
