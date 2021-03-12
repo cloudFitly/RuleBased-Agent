@@ -58,7 +58,10 @@ class SmartHawkweedEradicationAgent(HawkweedEradicationAgent):
 
     def choose_move(self, location, valid_moves, hawkweed, threshold, growth, spread):
         """ Chooses next move
-            Next move: hawkweed.key.value = max(hawkweed[(valid_moves)]) """
+            Next move: 
+            RETURN hawkweed.key WHERE
+                       hawkweed.key.value == max(hawkweed[(valid_move)])
+        """
 
         temp = max(map(hawkweed.get,valid_moves))
         return list(hawkweed.keys())[list(hawkweed.values()).index(temp)]
